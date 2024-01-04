@@ -1,0 +1,107 @@
+.app-page-notification{
+    background-image: url("../../../public/assets/images/map.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.app-page-dark-back-header{
+    background-color: transparent;
+    ion-button{
+        --background: transparent;
+    }
+}
+.app-page-dark-back-heading{
+    padding:0 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    h1{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        margin: 0;
+    }
+    p{
+        font-size: 12px;
+        font-style: normal;
+        font-weight: normal;
+        color: #5c6066;
+        margin:4px 0 0 0;
+        span{
+            color: #28303f;
+            font-weight: 500;
+      }
+    }
+    ion-button{
+      text-transform: capitalize;
+      letter-spacing: normal;
+      font-size: 12px;
+      font-weight: 500;
+      color: #ff6431;
+    }
+}
+.app-page-notification-wrapper{
+    padding:0 30px;
+}
+.app-notification-list{
+    padding:0;
+    margin:10px 0 0 0;
+    list-style: none;
+    .app-notification-list-item{
+        margin:15px 0;
+    }
+}
+.app-notification-card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px 0 #e2e2e2;
+    border: solid 1px #f8f7f7;
+    background-color: #fff;
+    ion-button{
+        --background: #f8f7f7;
+        color:#ff6431;
+        margin:0;
+        &::part(native){
+            border-radius: 0 0 10px 10px;
+            box-shadow: none;
+        }
+    }
+}
+.app-notification-card-header{
+    display: flex;
+    align-items: center;
+    padding:15px 15px 0 15px;
+    img{
+        width: 16px;
+        margin-right: 10px;
+    }
+    span{
+        font-size: 12px;
+        font-weight: 500;
+        color: #28303f;
+        margin-top: 5px;
+    }
+}
+.app-notification-card-content{
+    display: flex;
+    flex-direction: column;
+    margin-top:10px;
+    padding:0 15px;
+    margin-bottom: 15px;
+    h6{
+        font-size: 14px;
+        color: #28303f;
+        margin: 0 0 5px 0;
+        font-weight: normal;
+        span{
+            font-weight: bold;
+        }
+    }
+    p{
+        font-size: 10px;
+        color: #5c6066;
+        margin:0;
+    }
+}

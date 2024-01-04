@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Objectivity';
+    src: url('Objectivity-Regular.woff2') format('woff2'),
+        url('Objectivity-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Objectivity';
+    src: url('Objectivity-Black.woff2') format('woff2'),
+        url('Objectivity-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Objectivity';
+    src: url('Objectivity-Medium.woff2') format('woff2'),
+        url('Objectivity-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Objectivity';
+    src: url('Objectivity-Bold.woff2') format('woff2'),
+        url('Objectivity-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

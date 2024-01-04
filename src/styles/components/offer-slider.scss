@@ -1,0 +1,29 @@
+.app-component-offer-slider{
+    width: 100%;
+}
+.app-component-offer-slider{
+    .swiper{
+        .swiper-pagination-bullet{
+            background: #ffffff;
+            margin-bottom: 5px;
+            opacity: 1;
+            &.swiper-pagination-bullet-active{
+                background: #ff6431;
+            }
+        }
+        padding-bottom: 30px;
+        .swiper-pagination{
+            bottom: var(--swiper-pagination-bottom,-2px);
+        }
+    }
+}
+
+.app-component-offer-slider-image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 100%;
+    }
+}

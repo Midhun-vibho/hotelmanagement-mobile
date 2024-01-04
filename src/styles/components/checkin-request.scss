@@ -1,0 +1,38 @@
+.app-component-checkin-request{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+    img{
+        width: 80px;
+    }
+    h5{
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        color: #28303f;
+        margin:15px 0 10px 0;
+    }
+    p{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 26px;
+        text-align: center;
+        color: #5c6066;
+        margin: 0 0 10px 0
+    }
+}
+ion-modal.checkin-request-modal {
+    --height: 300px;
+    --max-width: 350px;
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  ion-modal.checkin-request-modal::part(backdrop) {
+    background: rgba(0, 0, 0);
+    opacity: 1;
+  }

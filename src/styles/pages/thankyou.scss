@@ -1,0 +1,42 @@
+.app-page-thankyou{
+    height: 100%;
+    background-image: url("../.../../../../public/assets/images/thankyou-bg.svg");
+    background-size: 100%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app-page-thankyou-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 80px;
+        margin-bottom: 20px;
+    }
+    h1{
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        color: #28303f;
+        margin: 0 0 8px 0;
+    }
+    p{
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        color: #5c6066;
+        margin:0;
+    }
+}
+.app-page-thankyou-wrapper-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    .app-clear-button{
+        margin-top: 10px;
+    }
+}

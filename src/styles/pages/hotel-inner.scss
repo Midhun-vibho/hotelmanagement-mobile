@@ -1,0 +1,460 @@
+.app-page-hotel-inner-banner{
+    width: 100%;
+    position: relative;
+    .app-page-hotel-inner-banner-image{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .app-page-hotel-inner-header{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        padding:5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        ul{
+            display: flex;
+            align-items: center;
+            padding:0;
+            margin:0;
+            list-style: none;   
+        }
+        ion-button{
+            --background: transparent;
+            &::part(native){
+                box-shadow: none;
+            }
+        }
+    }
+}
+.app-page-property-inner-detail-checkin{
+    margin: 10px 0 0 0;
+    ul{
+        display: flex;
+        align-items: center;
+        padding:0;
+        margin:0;
+        list-style: none;
+        li{
+            position: relative;
+            &:not(:last-child){
+                padding-right: 40px;
+                &::after{
+                    content: "";
+                    width: 1px;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    right: 20px;
+                    background-color: #bebebe;
+                }
+            }
+            p{
+                font-size: 10px;
+                font-weight: 500;
+                color: #5c6066;
+                margin: 0 0 5px 0;
+            }
+            h2{
+                font-size: 12px;
+                font-weight: 500;
+                color: #28303f;
+                margin:0;
+            }
+        }
+    }
+}
+.app-page-property-inner-detail-policies{
+    ul{
+        padding:0 0 0 15px;
+        margin:0;
+        li{
+            &:not(:last-child){
+                margin-bottom: 8px;
+            }
+            font-size: 12px;
+            font-weight: 500;
+            color: #5c6066;
+        }
+    }
+}
+.app-page-property-inner-detail-policies-link{
+    margin-top: 20px;
+    a{
+        font-size: 14px;
+        font-weight: 500;
+        color: #ff6431;
+    }
+}
+.app-page-hotel-inner-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding:15px 30px;
+}
+.app-page-hotel-inner-info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    p.app-page-hotel-inner-info-para{
+        font-size: 12px;
+        color: #5c6066;
+        padding:0;
+        margin:6px 0 0 0;
+    }
+}
+.app-page-hotel-inner-info-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        margin:0;
+    }
+    .app-page-hotel-inner-distance{
+        display: flex;
+        align-items: center;
+        span{
+            font-size: 14px;
+            font-weight: 500;
+            text-align: right;
+            color: #5c6066;
+        }
+        img{
+            width: 14px;
+            margin-right: 5px;
+            margin-top: -5px;
+        }
+    }
+   
+}
+.app-page-hotel-inner-info-reviews{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    p{
+        font-size: 12px;
+        color: #5c6066;
+        margin:0;      
+        margin-top: 2px;
+    }
+}
+.app-page-hotel-inner-info-reviews-content{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #069e20;
+    margin-right: 10px;
+    img{
+        width: 10px;
+        margin-right: 5px;
+        margin-top: -2px;
+    }
+    span{
+        font-size: 10px;
+        font-weight: 500;
+        color: #fff;
+        margin-top: 2px;
+    }
+    
+}
+.hotel-inner-heading{
+    font-size: 14px;
+    font-weight: bold;
+    color: #28303f;
+    margin: 0 0 5px 0;
+}
+.app-page-hotel-inner-info-description{
+    margin-top: 20px;
+    p{
+        font-size: 12px;
+        color: #5c6066;
+        margin:0;
+    }
+}
+.app-page-hotel-inner-info-amenities{
+    margin-top: 20px;
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        padding:0;
+        margin:0;
+        list-style: none;
+        li{
+            display: flex;
+            align-items: center;
+            width: calc(50% - 10px);
+            margin-top: 10px;
+            img{
+                width: 16px;
+                object-fit: contain;
+                margin-right: 10px;
+            }
+            span{
+                font-size: 12px;
+                color: #5c6066;
+            }
+        }
+    }
+}
+.app-page-hotel-inner-info-policies{
+    margin-top: 20px;
+}
+.app-page-property-inner-detail-policies{
+    margin-top: 10px;
+}
+.app-page-property-inner-detail-policies-link{
+    a{
+        text-decoration: none;
+    }
+}
+.app-proceed-to-pay-cta-footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding:10px 30px;
+    border-radius: 32px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 -5px 10px 0 rgba(227, 227, 227, 0.5);
+    background-color: #fff;
+}
+.app-proceed-to-pay-cta-price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app-proceed-to-pay-price{
+    display: flex;
+    flex-direction: column;
+    h4{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        margin:0 0 3px 0;
+    }
+    h6{
+        font-size: 12px;
+        color: #5c6066;
+        margin:0;
+        span{
+            text-decoration: line-through;
+            &.discounted{
+                font-size: 12px;
+                font-weight: bold;
+                color: #ff6431;
+                text-decoration: none;
+                margin-left: 6px;
+            }
+        }
+    }
+}
+.app-page-hotel-inner-info-map{
+    margin-top: 20px;
+}
+.app-page-hotel-inner-info-map-content{
+    margin-top: 10px;
+    iframe{
+        border-radius: 20px;
+        border:0;
+    }
+}
+
+.app-page-hotel-inner-info-applycoupon{
+    margin-top: 20px;
+    ion-button{
+        border: solid 1px #f8f7f7;
+        box-shadow: 0 5px 15px 0 #ececec;
+        width: 100%;
+        position: relative;
+        text-transform: capitalize;
+        letter-spacing: normal;
+        --background: #ffffff;
+        min-height: 50px;
+        color:#ff6431;
+        margin:0;
+        .apply-coupon-arrow{
+            width: 16px;
+        }
+        &::part(native){
+            box-shadow: none;
+        }
+    }
+    .app-applycoupon-content{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        img{
+            width:16px;
+            margin-right: 10px;
+        }
+        span{
+            font-size: 12px;
+            font-weight: 500;
+            color: #28303f;
+        }
+    }
+}
+.app-page-hotel-inner-info-date{
+    margin-top: 20px;
+}
+.app-page-hotel-inner-info-list{
+    ul{
+        width:100%;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        list-style: none;
+        li{
+            width: calc(50% - 10px);
+            display: flex;
+            flex-direction: column;
+            margin-top: 12px;
+            p{
+                font-size: 10px;
+                font-weight: 500;
+                color: #5c6066;
+                margin:0;
+            }
+            h4{
+                font-size: 12px;
+                font-weight: 500;
+                color: #28303f;
+                margin: 4px 0 0 0;
+            }
+        }
+    }
+}
+.app-page-hotel-inner-info-appliedcoupon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding:10px 0 10px 10px;
+    box-shadow: 0 5px 15px 0 #ececec;
+    border: solid 1px #f8f7f7;
+    h3{
+        font-size: 12px;
+        font-weight: 500;
+        color: #5c6066;
+        margin:0;
+    }
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        color: #5c6066;
+        margin:5px 0 0 0;
+    }
+    ion-button{
+        --background: transparent;
+        color:#28303f;
+        &::part(native){
+            box-shadow: none;
+        }
+    }
+}
+.app-page-hotel-inner-pricing{
+    margin-top: 20px;
+    ul{
+        display: flex;
+        flex-direction: column;
+        padding:0;
+        margin:0;
+        list-style: none;
+        li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin:10px 0 0 0;
+            p{
+                font-size: 12px;
+                font-weight: 500;
+                color: #5c6066;
+                margin:0;
+            }
+            span{
+                font-size: 12px;
+                font-weight: 500;
+                color: #28303f;
+            }
+        }
+    }
+}
+.app-page-hotel-inner-rooms{
+    width: 100%;
+    .app-page-hotel-inner-rooms-list{
+        width: 100%;
+        padding:0;
+        margin:0;
+        list-style: none;
+        .app-page-hotel-inner-rooms-list-item{
+            margin-top: 20px;
+        }
+    }
+}
+.app-proceed-to-pay-services{
+    padding-top: 10px;
+    h2{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        margin: 0 0 5px 0;
+    }
+    .search-guest-preference-list{
+        margin-top: 0;
+    }
+    .search-guest-preference-list{
+        flex-direction: column;
+    }
+    .search-guest-preference-list-item{
+        margin:0;
+    }
+    p{
+        color: #28303f;
+        font-size: 14px;
+    }
+}
+
+.listing-prices{
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.search-guest-preference-list span{
+    color: black;
+}
+
+.app-booking-details-collapse{
+    .ion-accordion-toggle-icon{
+        font-size: 20px;
+        margin:0;
+        transform: rotate(270deg);
+    }
+    ion-item{
+        &::part(native){
+            min-height: unset;
+            padding:0 0 10px 0 !important;
+        }
+    }
+    &__title{
+        padding:0;
+        margin:0 !important;
+    }
+}
+.app-booking-details-collapse__title{
+    
+}

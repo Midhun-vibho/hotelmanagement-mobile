@@ -1,0 +1,146 @@
+.app-component-booking-card{
+    border-radius: 20px;
+    box-shadow: 0 10px 15px 0 #e2e2e2;
+    border: solid 1px #f8f7f7;
+    background-color: #fff;
+}
+.app-comzponent-booking-card-image{
+    width:100%;
+    height: 150px;
+    position: relative;
+    .app-comzponent-booking-card-image-content{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 20px 20px 0 0;
+    }
+    ion-button{
+        position: absolute;
+        top:0;
+        right:0;
+        --background: transparent;
+        color: #fff;
+        border-radius: 50%;
+        &::part(native){
+            border-radius: 50%;
+            box-shadow: none;
+        }
+    }
+}
+.app-component-booking-card-heading{
+    padding:15px;
+    h3{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        padding:0;
+        margin:0;
+    }
+    p{
+        font-size: 12px;
+        color: #5c6066;
+        padding:0;
+        margin:5px 0 0 0;
+    }
+}
+.app-component-booking-card-strip{
+    padding:10px 15px;
+    background-color: #f8f7f7;
+    font-size: 12px;
+    font-weight: 500;
+    color: #28303f;
+    margin:0;
+}
+.app-component-booking-card-reviews,
+.app-component-booking-card-pricing{
+    padding:0 15px;
+    margin-top: 8px;
+    display: flex;
+}
+.app-component-booking-card-buttons-list{
+    display: flex;
+    margin: 10px 0 10px 0;
+    padding:0 15px;
+    list-style: none;
+    justify-content: space-between;
+    li{
+        width: calc(50% - 5px);
+        margin:10px 0;
+        ion-button{
+            width: 100%;
+            --background: #fff;
+            &::part(native){
+                border-radius: 20px;
+                border-width: 1px;
+                border-style: solid;
+            }
+            &.app-primary-btn{
+                color:  #ff6431;
+            }
+            &.app-grey-btn{
+                color:  #5c6066;
+            }
+        }
+    }
+}
+.app-button-has-icon-inner{
+    display: flex;
+    align-items: center;
+    img{
+        width: 15px;
+        margin-right: 5px;
+    }
+    span{
+        letter-spacing: normal;
+        text-transform: capitalize;
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+.app-component-booking-checkout-card{
+    margin-bottom: 20px;
+}
+.app-component-booking-checkin-btn{
+    display: flex;
+    justify-content: center;
+    ion-button{
+        margin-bottom: -20px;
+    }
+}
+.app-component-booking-canceled-card{
+    .app-component-booking-card-buttons-list{
+        li{
+            width: 100%;
+            margin:0;
+        }
+    }
+}
+.app-component-booking-card-refund{
+    padding:10px 15px;
+    display: flex;
+    justify-content: space-between;
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        color: #5c6066;
+        margin:0 0 4px 0;
+        padding:0;
+    }
+    h1{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        margin:0;
+    }
+    span{
+        padding: 5px 10px;
+        border-radius: 13px;
+        background-color: #ffb631;
+        font-size: 12px;
+        font-weight: 500;
+        color: #f8f7f7;
+        display: flex;
+        height: 100%;
+    }
+}

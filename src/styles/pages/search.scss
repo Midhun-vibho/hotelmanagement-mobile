@@ -1,0 +1,293 @@
+.app-component-search-header{
+    background-image: url('../../../public/assets/images/map.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding:0 30px;
+}
+.app-component-search-back{
+    width: 100%;
+    display: flex;
+    padding:10px 0;
+    ion-button{
+        &::part(native){
+            padding: 12px;
+            margin-left: -10px;
+        }
+    }
+    img{
+        width: 32px;
+    }
+}
+.app-component-search-form{
+    display: flex;
+    width: 100%;
+    form{
+        width: 100%;
+    }
+}
+.app-component-search-form-field{
+    display: flex;
+    width: 100%;
+    position: relative;
+    .MuiAutocomplete-root{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-radius: 24px;
+        box-shadow: 0 10px 15px 0 #e2e2e2;
+        border: solid 1px #f8f7f7;
+        background-color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        color: #28303f;
+        outline: 0;
+        padding:3px 0 3px 30px;
+        .MuiOutlinedInput-notchedOutline{
+            border:0;
+        }
+        .MuiAutocomplete-input{
+            padding:0 !important;
+        }
+    }
+    .app-component-search-header-icon{
+        position: absolute;
+        top: 16px;
+        left: 16px;
+    }
+}
+.app-component-search-dates{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:15px 0;
+    .app-component-search-dates-checkin{
+        width: calc(50% - 20px);
+        ion-button{
+            border-radius: 30px;
+            letter-spacing: normal;
+            width: 100%;
+            &::part(native){
+                box-shadow: 0 20px 15px 0 #f5f5f5;
+                background-color: #fff;
+                border:1px solid #ededed; 
+                border-radius: 30px;
+                padding: 20px;
+            }
+            .search-dates-btn{
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                width: 100%;
+            }
+            img{
+                width: 16px;
+                margin-right: 8px;
+            }
+            span{
+                font-size: 12px;
+                text-transform: capitalize;
+                color: #5c6066;
+            }
+        }
+    }
+}
+ion-datetime {
+    color: var(--ion-color-medium);
+}
+
+ion-modal {
+    &.date-modaal{
+        --width: fit-content;
+        --min-width: 250px;
+        --height: fit-content;
+        --border-radius: 6px;
+        --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    }
+}
+.app-component-search-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding:0 ;
+}
+.app-component-search-body-card{
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px 0 #e2e2e2;
+    border: solid 1px #f8f7f7;
+    background-color: #fff;
+    padding: 20px;
+    h2{
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        color: #28303f;
+        margin:0;
+    }
+}
+.search-guest-add-list{
+    padding:0;
+    margin:0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 20px;
+    .search-guest-add-list-item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+    }
+}
+.search-guest-info{
+    h5{
+        font-size: 12px;
+        font-weight: 500;
+        color: #28303f;
+        margin:0;
+    }
+    p{
+        font-size: 12px;
+        color: #5c6066;
+        margin: 5px 0 0 0;
+    }
+}
+.search-guest-add-buttons{
+    display: flex;
+    align-items: center;
+    border: solid 1px #ededed;
+    border-radius: 25px;
+    input{
+        padding:0;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border:0;
+        font-size: 12px;
+        font-weight: 500;
+        color: #28303f;
+        outline: 0;
+        background: #ffffff;
+    }
+ .guest-add-btn{
+    ion-button{
+        width: 40px;
+        height: 40px;
+        &::part(native){
+            border-radius: 25px;
+            background-color: #fff;
+            box-shadow: none;
+            color: #ff6431;
+            font-size: 20px;
+        }
+    }
+    &.guest-add-btn-minus{
+        border-right: solid 1px #ededed;
+    }
+    &.guest-add-btn-plus{
+        border-left: solid 1px #ededed;
+    }
+ }   
+}
+.search-guest-preference{
+    border-top: solid 1px #bebebe;
+    padding-top: 20px;
+}
+.search-guest-preference-list{
+    display: flex;
+    flex-wrap: wrap;
+    padding:0;
+    margin:10px 0 0 0;
+    width: 100%;
+    list-style: none;
+    justify-content: space-between;
+    .search-guest-preference-list-item{
+        width: calc(50% - 10px);
+        margin:5px 0;
+        ion-checkbox{
+            margin: 0;
+            margin-right: 6px;
+            width: 16px;
+            height: 16px;
+            &::part(container){
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+            }
+        }
+        ion-label{
+            font-size: 12px;
+            font-weight: 500;
+            color: #5c6066;
+            margin:0;
+            width: 100%;
+            line-height: 24px;
+        }
+        ion-item{
+            --min-height: auto;
+            --inner-padding-end: 0;
+            --border-color:transparent;
+            &::part(native){
+                padding:0;
+                align-items: center;
+                .item-inner{
+                    padding:0;
+                }
+            }
+        }
+    }
+}
+.search-price-range{
+    margin-top: 30px;
+    h2{
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.14;
+        letter-spacing: normal;
+        color: #28303f;
+        margin:0;
+    }
+    .app-component-filter-list-radio-btn{
+        padding:0;
+        margin: 5px -10px 0 -10px;
+    }
+}
+.search-component-button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.app-component-search-date-range{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 24px;
+    box-shadow: 0 10px 15px 0 #e2e2e2;
+    border: solid 1px #f8f7f7;
+    background-color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    color: #28303f;
+    outline: 0;
+    padding: 15px 17px;
+    .search-date-range-icon{
+        width: 16px;
+        margin-right: 8px;
+    }
+    .DatePicker{
+        .DatePicker__input{
+            border: 0;
+            padding: 0;
+            text-align: left;
+            margin-top: 3px;
+            outline: 0 !important;
+        }
+    }
+}

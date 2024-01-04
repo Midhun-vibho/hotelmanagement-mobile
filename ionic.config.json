@@ -1,0 +1,7 @@
+{
+  "name": "HotelBookingMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

@@ -1,0 +1,168 @@
+.app-component-filter-content{
+    display: flex;
+    align-items: center;
+    padding:15px 30px;
+    ion-button{
+        margin:0;
+        margin-right: 10px;
+        height: auto;
+        &::part(native){
+            padding:0;
+        }
+        img{
+            width: 12px;
+        }
+    }
+    .app-component-filter-content-text{
+        display: flex;
+        align-items: center;
+        h4{
+            font-size: 12px;
+            font-weight: bold;
+            color: #28303f;
+            margin:0;
+        }
+        span{
+            width: 20px;
+            height: 20px;
+            background-color: #ff6431;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            font-weight: 500;
+            text-align: center;
+            color: #fff;
+            margin-left: 10px;
+        }
+    }
+}
+ion-modal.app-filter-modal{
+    padding-top: 30px;
+    &::part(content){
+        border-radius: 20px 20px 0 0;
+    }
+}
+.app-component-filter-list-check{
+    width: 100%;
+    margin:10px 0 10px 0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    .app-component-filter-list-check-item{
+        width: 100%;
+    }
+}
+.app-component-filter-checkbox{
+    ion-item{
+        &::part(native){
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            padding:10px 30px;
+        }
+        --inner-border-width: 0;
+    }
+    ion-checkbox {
+        --size: 18px;
+        --background-checked: var(--ion-color-primary);
+        margin:0;
+        margin-right: 10px;
+        &::part(container) {
+            border-radius: 4px;
+            border: 1px solid var(--ion-color-primary);
+        }
+        &.checkbox-checked + ion-label{
+            color: #28303f !important;
+        }
+    }
+    ion-label{
+        font-size: 12px !important;
+        font-weight: 500;
+        color: #5c6066 !important;
+        border:0;
+        margin:0;
+    }
+    
+}
+.app-component-filter-section-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background-color: #f8f7f7;
+    h4{
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.14;
+        color: #28303f;
+        margin:0;
+    }
+    ion-button{
+        height: auto;
+        &::part(native){
+            padding:0;
+        }
+        font-size: 12px;
+        font-weight: 500;
+        text-align: right;
+        color: #ff6431;
+        text-transform: capitalize;
+    }
+}
+.app-component-filter-footer{
+    padding:10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 32px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 -5px 10px 0 rgba(227, 227, 227, 0.5);
+    background-color: #fff;
+    h3{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        margin:0;
+    }
+}
+.app-component-filter-list-radio-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding:5px 20px;
+    margin:0;
+    .app-component-filter-list-radio-btn-item{
+        width: calc(50% - 20px);
+        margin:10px;
+    }
+}
+.filter-button-type-radio{
+    input{
+        display: none;
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding:12px 20px;
+        border-radius: 23px;
+        box-shadow: 0 20px 15px 0 #f5f5f5;
+        border: solid 1px #ededed;
+        background-color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        color: #5c6066;
+      }
+      input[type="radio"]:checked +  label{
+        background-color: #ff6431;
+        border-color:#ff6431;
+        color: #ffffff;
+      }
+}

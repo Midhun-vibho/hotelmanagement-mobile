@@ -1,0 +1,141 @@
+.app-page-hotel-listing{
+    background-image: url("../../../public/assets/images/map.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    .app-page-dark-back-header{
+        background: transparent;
+        ion-button{
+            --background: transparent;
+        }
+    }
+}
+.app-page-hotel-listing-wrapper{
+    padding:0 30px;
+}
+.app-page-hotel-listing-search{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.listing-serched-button{
+    width: 100%;
+    height: auto;
+    --background: #ffffff;
+    --color: #5c6066;
+    &::part(native){
+        padding:10px 15px;
+        border-radius: 30px;
+    }
+}
+.app-page-hotel-listing-search-content{
+    display: flex;
+    width: 100%;
+    position: relative;
+    .app-page-hotel-listing-search-info{
+        text-transform: capitalize;
+        letter-spacing: normal;
+        text-align: left;
+        margin-left: 12px;
+        h6{
+            font-size: 10px;
+            font-weight: 500;
+            color: #5c6066;
+            margin:0 0 4px 0;
+        }
+        p{
+            font-size: 12px;
+            font-weight: 500;
+            color: #28303f;
+            margin:0;
+        }
+    }
+}
+.app-page-hotel-listing-searched-text{
+    margin: -40px 0 20px 0;
+    border-radius: 20px;
+    padding: 40px 2px 2px 12px;
+    background-color: #28303f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    p{
+        font-size: 10px;
+        font-weight: 500;
+        color: #f8f7f7;
+        margin:0;
+    }
+    ion-button{
+        font-size: 10px;
+        font-weight: bold;
+        color: #ff6431;
+        text-transform: capitalize;
+        letter-spacing: normal;
+    }
+}
+.app-page-hotel-listing-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+        font-size: 14px;
+        font-weight: bold;
+        color: #28303f;
+        margin: 0;
+    }
+    ion-button{
+        --background: #fff;
+        color:  #5c6066;
+        &::part(native){
+            border-radius: 20px;
+            border-width: 1px;
+            border-style: solid;
+        }
+    }
+    .app-page-hotel-listing-filter{
+        display: flex;
+        align-items: center;
+        img{
+            width: 15px;
+            margin-right: 5px;
+        }
+        p{
+            letter-spacing: normal;
+            text-transform: capitalize;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6431;
+            border-radius: 50%;
+            margin-left: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}
+.app-hotel-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding:0;
+    margin:10px 0 0 0;
+    .app-hotel-list-item{
+        margin: 10px 0;
+        box-shadow: 0 10px 15px 0 #e2e2e2;
+        border-radius: 20px;
+        .app-component-property-card-details{
+            padding:10px;
+        }
+    }
+}

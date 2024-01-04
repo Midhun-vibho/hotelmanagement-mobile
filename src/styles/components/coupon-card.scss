@@ -1,0 +1,107 @@
+.app-component-coupon{
+    border-radius: 10px;
+    border: solid 1px #f8f7f7;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.app-component-coupon-wrapper{
+    padding:15px;
+    position: relative;
+}
+.coupon-card-graphic{
+    width: 60px;
+    height: 88px;
+    background-color: #fff6f3;
+    position: absolute;
+    top:15px;
+    left:0;
+    border-radius: 50%;
+}
+.app-component-coupon-sponcer-logo{
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px 0 rgba(218, 218, 218, 0.5);
+    border: solid 1px #f8f7f7;
+    background-color: #fff;
+    padding:6px;
+    img{
+        height: 12px;
+        object-fit: contain;
+    }
+}
+.app-component-coupon-discount{
+    margin-top: 15px;
+    h1{
+        font-weight: bold;
+        color: #ff6431;
+        font-size: 12px;
+        margin:0;
+    }
+    p{
+        font-size: 10px;
+        font-weight: normal;
+        color: #5c6066;
+        margin:5px 0 0 0;
+    }
+}
+.app-component-coupon-stripped-line{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    &::after,
+    &::before{
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top:50%;
+        transform: translateY(-50%);
+        border: 1px solid #e8e8e8;
+        background-color: #ffffff;
+        border-radius: 50%; 
+    }
+    &::before{
+        left: -12px;
+    }
+    &::after{
+        right: -12px;
+    }
+    span{
+        width: 100%;
+        border-top: 1px dashed #e8e8e8;
+    }
+}
+.app-component-coupon-info{
+    margin-top: 5px;
+    p{
+        font-size: 10px;
+        text-align: center;
+        color: #5c6066;
+        margin:0;
+    }
+    h5{
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        color: #28303f;
+        margin:5px 0 0 0;
+    }
+}
+.app-component-coupon-apply-btn{
+    width: 100%;
+    margin-top: 10px;
+    ion-button{
+        width: 100%;
+        text-transform: capitalize;
+        letter-spacing: normal;
+        --background: #f8f7f7;
+        margin:0;
+        color: #ff6431;
+        &::part(native){
+            box-shadow: none;
+        }
+    }
+}
