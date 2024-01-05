@@ -17,11 +17,11 @@ const Bookings: React.FC = () => {
     const loggedUserData = getLoggedUserData();
     const [bookings, setBookings] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
-    const [selectedTab,setSelectedTab] = useState(0);
-    const getBookings = async (tabType:any) => {
+    const [selectedTab, setSelectedTab] = useState(0);
+    const getBookings = async (tabType: any) => {
         setLoading(true);
         const { data, status } = await axios.get(
-          `Booking/list?tabType=${tabType}&author_id=${loggedUserData.id}`,
+            `Booking/list?tabType=${tabType}&author_id=${loggedUserData.id}`,
         );
         if (status === 200 || status === 201) {
             const results = data.results
@@ -48,31 +48,31 @@ const Bookings: React.FC = () => {
         //   setBookings(data?.results);
         //   setLoading(false);
         }
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         const tabType =
-          selectedTab === 0 ? 'Upcoming' : selectedTab === 1 ? 'Past' : 'Cancelled';
+            selectedTab === 0 ? 'Upcoming' : selectedTab === 1 ? 'Past' : 'Cancelled';
         getBookings(tabType);
-      }, [selectedTab]);
-      const handleCancelBooking = async (bookingId:any) => {
+    }, [selectedTab]);
+    const handleCancelBooking = async (bookingId: any) => {
         const updatebooking = {
-          booking_status: 'Cancelled',
+            booking_status: 'Cancelled',
         };
         const { status } = await axios.patch(
-          `/Booking/update/${bookingId}`,
-          updatebooking,
+            `/Booking/update/${bookingId}`,
+            updatebooking,
         );
         if (status === 200 || status === 201) {
-          toast.success('Booking cancelled successfully');
-          const tabType =
-            selectedTab === 0
-              ? 'Upcoming'
-              : selectedTab === 1
-              ? 'Past'
-              : 'Cancelled';
-          getBookings(tabType);
+            toast.success('Booking cancelled successfully');
+            const tabType =
+                selectedTab === 0
+                    ? 'Upcoming'
+                    : selectedTab === 1
+                        ? 'Past'
+                        : 'Cancelled';
+            getBookings(tabType);
         }
-      };
+    };
     return (
         <>
             <SideMenu />
@@ -90,15 +90,15 @@ const Bookings: React.FC = () => {
                             <div className="app-page-bookings-btns">
                                 <ul>
                                     <li>
-                                        <input type={"radio"} name="booking-type" onChange={(e) => {setSelectedTab(0)}} defaultChecked id="booking-type-upcoming" />
+                                        <input type={"radio"} name="booking-type" onChange={(e) => { setSelectedTab(0) }} defaultChecked id="booking-type-upcoming" />
                                         <label htmlFor="booking-type-upcoming" className="ripple-parent">Upcoming<IonRippleEffect></IonRippleEffect></label>
                                     </li>
                                     <li>
-                                        <input type={"radio"} name="booking-type" id="booking-type-completed" onChange={(e) => {setSelectedTab(1)}}/>
+                                        <input type={"radio"} name="booking-type" id="booking-type-completed" onChange={(e) => { setSelectedTab(1) }} />
                                         <label htmlFor="booking-type-completed" className="ripple-parent">Completed<IonRippleEffect></IonRippleEffect></label>
                                     </li>
                                     <li>
-                                        <input type={"radio"} name="booking-type"  id="booking-type-cancelled" onChange={(e) => {setSelectedTab(2)}}/>
+                                        <input type={"radio"} name="booking-type" id="booking-type-cancelled" onChange={(e) => { setSelectedTab(2) }} />
                                         <label htmlFor="booking-type-cancelled" className="ripple-parent">Cancelled<IonRippleEffect></IonRippleEffect></label>
                                     </li>
                                 </ul>
@@ -106,13 +106,14 @@ const Bookings: React.FC = () => {
                             <ul className="app-page-booking-list">
                                 <li className="app-page-booking-list-item">
                                     {
-                                        bookings.map((booking:any) => {
+                                        bookings && bookings?.map((booking: any) => {
                                             const hotelInformation = JSON.parse(
-                                              booking.hotel_infomration,
+                                                booking?.hotel_infomration,
                                             )[0];
                                             return (
-                                                <UpcomingBookingsCard hotelInformation={hotelInformation} booking={booking} selectedTab={selectedTab} handleCancelBooking={handleCancelBooking}/>
-                                            );})
+                                                <UpcomingBookingsCard hotelInformation={hotelInformation} booking={booking} selectedTab={selectedTab} handleCancelBooking={handleCancelBooking} />
+                                            );
+                                        })
                                     }
                                 </li>
                             </ul>
