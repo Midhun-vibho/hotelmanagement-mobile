@@ -15,7 +15,7 @@ import { toast } from 'react-toastify';
 
 const Bookings: React.FC = () => {
     const loggedUserData = getLoggedUserData();
-    const [bookings, setBookings] = useState([]);
+    const [bookings, setBookings] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedTab,setSelectedTab] = useState(0);
     const getBookings = async (tabType:any) => {
@@ -24,8 +24,29 @@ const Bookings: React.FC = () => {
           `Booking/list?tabType=${tabType}&author_id=${loggedUserData.id}`,
         );
         if (status === 200 || status === 201) {
-          setBookings(data?.results);
-          setLoading(false);
+            const results = data.results
+			const bookings: any[] = []
+
+			results.forEach((booking: any) => {
+				const hotelrooms = JSON.parse(booking.hotel_infomration)
+
+				const bookedrooms = booking.room_ids.map((room: any) => {
+					return {
+						...room,
+						details: hotelrooms.find((item: any) => item._id === room.hotel_room_id)
+					}
+				})
+
+				bookings.push({
+					...booking,
+					bookedrooms
+				})
+			})
+
+			setBookings(bookings);
+			setLoading(false);
+        //   setBookings(data?.results);
+        //   setLoading(false);
         }
       };
       useEffect(() => {
