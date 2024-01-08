@@ -1,21 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonContent, IonButton, IonPage } from '@ionic/react';
 import axios from 'axios';
 import '../styles/pages/thankyou.scss';
 import { Link, useParams } from 'react-router-dom';
 import { apiBaseUrl } from '../services/axios';
+import { IonItem, IonLabel, IonSpinner } from '@ionic/react';
 
 const Thankyou: React.FC = () => {
-    const { bookingId }: any = useParams();
+    const { id  }: any = useParams();
 
+    const [loading, setLoading] = useState(true)
     const token = localStorage.getItem("token")
 
     useEffect(() => {
         const updatesuccess = async () => {
-            const { data, status } = await axios.patch(`${apiBaseUrl}api/Booking/update/${bookingId}`, {
+            const { data, status } = await axios.patch(`${apiBaseUrl}api/Booking/update/${id}`, {
                 token,
                 payment_status: "Success"
             })
+            setLoading(false)
         }
 
         updatesuccess()
@@ -25,6 +28,10 @@ const Thankyou: React.FC = () => {
         <>
             <IonPage>
                 <IonContent fullscreen>
+                { loading ? 
+                    <div style={{display:'flex', justifyContent:'center', height:'100%', alignItems:'center'}}>
+                        <IonSpinner style={{width:'60px', height:'60px'}}/>
+                    </div>:
                     <div className="app-page-thankyou">
                         <div className="app-page-thankyou-wrapper">
                             <img src="/assets/images/checked.svg" />
@@ -38,6 +45,7 @@ const Thankyou: React.FC = () => {
                             </div>
                         </div>
                     </div>
+                }
                 </IonContent>
             </IonPage>
         </>

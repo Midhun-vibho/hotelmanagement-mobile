@@ -6,7 +6,7 @@
     "@capacitor-community/stripe": "^5.2.0",
     "@capacitor/android": "4.6.3",
     "@capacitor/app": "4.1.1",
-    "@capacitor/core": "4.6.3",
+    "@capacitor/core": "^4.6.3",
     "@capacitor/haptics": "4.1.0",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
@@ -62,7 +62,6 @@
     "yup": "^1.0.2"
   },
   "scripts": {
-    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
