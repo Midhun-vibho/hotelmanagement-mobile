@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { IonContent, IonButton, IonPage, IonHeader } from '@ionic/react';
-
+import dayjs from 'dayjs';
 import '../styles/pages/notifications.scss';
 import { Link } from 'react-router-dom';
 import axios from '../services/axios';
@@ -11,15 +11,18 @@ const Notification: React.FC = () => {
 
     const loggedUserData = getLoggedUserData();
 
+    const token = localStorage.getItem('token');
+
 
     const getNotifications = async () => {
-        const { data, status } = await axios.get(
-            `/Notification/list?author_id=${loggedUserData.id}`,
-        );
+        const { data, status } = await axios.post("/Notification/fetch-notification", { token })
         if (status === 200 || status === 201) {
-            setNotifications(data?.results);
+            setNotifications(data.notifications);
+            console.log(data.notifications)
         }
     };
+
+    useEffect(()=>{getNotifications();},[])
 
     useEffect(() => {
         if (loggedUserData?.id) {
@@ -28,6 +31,11 @@ const Notification: React.FC = () => {
     }, [loggedUserData?.id]);
 
     console.log('=====>', notifications)
+
+    const formatDateDDDMMMhmmFromString = (date: any) => {
+        return dayjs(date).format('ddd, D MMM, h:mm A');
+      };
+      
 
     return (
         <>
@@ -42,6 +50,47 @@ const Notification: React.FC = () => {
                             </Link>
                         </div>
                         {notifications.length !== 0 && (
+                            <>
+                                <div className="app-page-dark-back-heading">
+                                    <div>
+                                        <h1>Notifications</h1>
+                                        <p>You have <span>{notifications.length} New Notifications</span></p>
+                                    </div>
+                                    <IonButton fill="clear">Clear all</IonButton>
+                                </div>
+                                <div className="app-page-notification-wrapper">
+                                    <ul className="app-notification-list">
+                                    {notifications.map((notification: any) => {
+                                        return (
+                                            <li
+                                                key={notification._id}
+                                                className="app-notification-list-item"
+                                            >
+                                                <div className="app-notification-card">
+                                                    <div className="app-notification-card-header">
+                                                        <img src="/assets/images/footer/calendar.svg" />
+                                                        <span >
+                                                            {formatDateDDDMMMhmmFromString(
+                                                                notification.createdAt,
+                                                            )}
+                                                        </span>
+                                                    </div>
+                                                    <div style={{ fontSize: "14px", color: "#ff6431", marginLeft: "15px", marginTop: "10px", fontWeight: "600" }}>
+                                                        {notification.header}
+                                                    </div>
+                                                    <div className="app-notification-card-content">
+                                                        <span>{notification.text}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        )
+                                    })}
+                                    </ul>
+                                    
+                                </div>
+                            </>
+                        )}
+                        {/* {notifications.length !== 0 && (
                             <>
                                 <div className="app-page-dark-back-heading">
                                     <div>
@@ -94,7 +143,7 @@ const Notification: React.FC = () => {
                                     </ul>
                                 </div>
                             </>
-                        )}
+                        )} */}
 
                     </div>
                 </IonContent>
