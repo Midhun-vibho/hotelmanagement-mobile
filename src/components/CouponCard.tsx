@@ -13,51 +13,72 @@ const CouponCard = ({
     appliedCoupon,
     setAppliedCoupon,
     setShowAppliedCoupon,
+    handleCloseModal,
+    totalPriceWithoutDiscount
 }: any) => {
-    const [checkedCoupon, setCheckedCoupon] = useState<any>(null);
+    // const [checkedCoupon, setCheckedCoupon] = useState<any>(null);
 
-    const checkCoupon = async () => {
-        const { data, status } = await axios.get(
-            `/Coupon/CheckCoupon/${coupon?.code}/${totalPrice}?no_of_guests=${adults}&no_of_childrens=${childrens}`,
-        );
-        if (status === 200 || status === 201) {
-            setCheckedCoupon(data);
-        }
-    };
+    // const checkCoupon = async () => {
+    //     const { data, status } = await axios.get(
+    //         `/Coupon/CheckCoupon/${coupon?.code}/${totalPrice}?no_of_guests=${adults}&no_of_childrens=${childrens}`,
+    //     );
+    //     if (status === 200 || status === 201) {
+    //         setCheckedCoupon(data);
+    //     }
+    // };
     // useEffect(() => {
     //     checkCoupon();
     // }, []);
 
+    console.log(totalPriceWithoutDiscount)
+
     const handleApplyCoupon = () => {
-        if (checkedCoupon?.isValid) {
-            if (!appliedCoupon) {
-                const coupon = coupons.find((coupon:any) => coupon.code === coupon?.code);
-                setAppliedCoupon({
-                    id: coupon?._id,
-                    code: coupon?.code,
-                    discount: checkedCoupon?.discount,
-                });
-                toast.success(checkedCoupon?.message);
-            } else {
-                toast.error('One coupon already applied');
-            }
-            setShowAppliedCoupon(true);
-        } else {
-            toast.error(checkedCoupon?.message);
-        }
+        if (totalPriceWithoutDiscount < coupon.amount) {
+			toast.error("Coupon exceeds total amount")
+			return
+		}
+
+		setAppliedCoupon({
+			id: coupon._id,
+			code: coupon.code,
+			ispercentage: coupon.discount_type === "Percent" ? true : false,
+			discount: coupon.amount
+		})
+		
+		toast.success("Coupon applied success")
+		setShowAppliedCoupon(true)
+		handleCloseModal()
+        // if (checkedCoupon?.isValid) {
+        //     if (!appliedCoupon) {
+        //         const coupon = coupons.find((coupon:any) => coupon.code === coupon?.code);
+        //         setAppliedCoupon({
+        //             id: coupon?._id,
+        //             code: coupon?.code,
+        //             discount: checkedCoupon?.discount,
+        //         });
+        //         toast.success(checkedCoupon?.message);
+        //     } else {
+        //         toast.error('One coupon already applied');
+        //     }
+        //     setShowAppliedCoupon(true);
+        // } else {
+        //     toast.error(checkedCoupon?.message);
+        // }
     };
+
+    const discount = coupon.discount_type === "Percent" ? totalPriceWithoutDiscount * coupon.amount / 100 : coupon.amount
+
     return (
         <>
-           
-                <div className="app-component-coupon">
-                    <div className="coupon-card-graphic"></div>
+            <div className="app-component-coupon">
+                <div className="coupon-card-graphic"></div>
                     <div className="app-component-coupon-wrapper">
                         <div className="app-component-coupon-sponcer-logo">
-                            <img src={apiBaseUrl + coupon?.icon} />
+                            <img src="https://hotelmanagementbckt.s3.ap-south-1.amazonaws.com/visualsofdana-T5pL6ciEn-I-unsplash.jpg" />
                         </div>
                         <div className="app-component-coupon-discount">
                             <h1>{coupon?.name}</h1>
-                            <p>You will Save ₹₹${checkedCoupon?.discount} using paytm wallet</p>
+                            <p>{`You will save ₹${discount} using this coupon`}</p>
                         </div>
                     </div>
                     <div className="app-component-coupon-stripped-line">
@@ -70,8 +91,7 @@ const CouponCard = ({
                     <div className="app-component-coupon-apply-btn">
                         <IonButton onClick={handleApplyCoupon}>Apply</IonButton>
                     </div>
-                </div>
-       
+		    </div>
         </>
     )
 }

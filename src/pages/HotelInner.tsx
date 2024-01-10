@@ -76,6 +76,8 @@ const HotelInner: React.FC = () => {
         }
     };
 
+    const [totalPriceWithoutDiscount, setTotalPriceWithoutDiscount] = useState(0)
+
     const calculateTotalPrice = () => {
         let calculatedTotalPrice = 0;
         selectedRooms.forEach((selectedRoom: any) => {
@@ -83,6 +85,7 @@ const HotelInner: React.FC = () => {
                 calculatedTotalPrice + selectedRoom.number * selectedRoom.price;
         });
         setTotalPrice(calculatedTotalPrice);
+        setTotalPriceWithoutDiscount(calculatedTotalPrice)
     };
 
     useEffect(() => {
@@ -325,7 +328,7 @@ const HotelInner: React.FC = () => {
                                     </IonButton>
                                 </Link>
                             </div> */}
-                            <div className="app-page-hotel-inner-info-appliedcoupon">
+                            {/* <div className="app-page-hotel-inner-info-appliedcoupon">
                                 {coupons.map((coupon: any) => (
                                     <>
                                     <div>
@@ -337,7 +340,7 @@ const HotelInner: React.FC = () => {
                                         </IonButton>
                                     </>
                                 ))}
-                            </div>
+                            </div> */}
                             <div className="app-page-hotel-inner-info-amenities">
                                 <h2 className="hotel-inner-heading">Amenities</h2>
                                 <ul>
@@ -518,6 +521,7 @@ const HotelInner: React.FC = () => {
                         setTotalPrice={setTotalPrice}
                         numberOfDays={numberOfDays}
                         selectedRooms={selectedRooms}
+                        totalPriceWithoutDiscount={totalPriceWithoutDiscount}
                     />
                 </IonFooter>
             </IonPage>

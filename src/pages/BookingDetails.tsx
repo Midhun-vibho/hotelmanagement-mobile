@@ -21,6 +21,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { Capacitor } from '@capacitor/core';
 import { Stripe } from '@capacitor-community/stripe';
 // import StripeCheckoutButton from '../components/CheckOutForm';
+import '../styles/components/booking-detail.scss'
 const stripePromise = loadStripe('pk_test_51NZv8WSIeoNx7WRJosdRkVFhQUT5Sq9MQDCCBE18EBjBKlvvB1dKTii7piZgURdPRpDjrERiBl8LlMcTyxvkyNPP00FEcESSuD');
 
 const validateBooking = (from: any, to: any, adults: any, childrens: any, rooms: any) => {
@@ -47,6 +48,7 @@ function useQuery() {
 export default function BookingDetails({ property,
     totalPrice,
     setTotalPrice,
+    totalPriceWithoutDiscount,
     numberOfDays,
     selectedRooms, }: any) {
     const location: any = useLocation()
@@ -80,6 +82,7 @@ export default function BookingDetails({ property,
     const [bookingId, setBookingId] = useState('');
     const [appliedCoupon, setAppliedCoupon] = useState<any>(null);
     const [stripeInitialized, setStripeInitialized] = useState(false);
+    const [appliedDiscount, setAppliedDiscount] = useState<any>(0)
 
     const open = Boolean(anchorEl);
 
@@ -177,14 +180,19 @@ export default function BookingDetails({ property,
     }, [property?.HotelBuyerPrices, adults, childrens]);
 
     const recalculateTotalPrice = () => {
-        setTotalPrice((oldTotalPrice: any) => oldTotalPrice - appliedCoupon.discount);
-    };
+		const discount = appliedCoupon.ispercentage ? totalPriceWithoutDiscount * appliedCoupon.discount / 100 : appliedCoupon.discount
 
-    useEffect(() => {
-        if (appliedCoupon) {
-            recalculateTotalPrice();
-        }
-    }, [appliedCoupon]);
+		setAppliedDiscount(discount)
+		setTotalPrice(totalPriceWithoutDiscount - discount)
+	}
+
+	useEffect(() => {
+		if (appliedCoupon) {
+			recalculateTotalPrice()
+		} else {
+			setTotalPrice(totalPriceWithoutDiscount)
+		}
+	}, [appliedCoupon])
 
     const onSubmitCoupon = async (event: any) => {
         event.preventDefault();
@@ -267,7 +275,7 @@ export default function BookingDetails({ property,
             total_paid: totalPaid,
             total_service_price: totalHotelExtraPrices,
             total_extra_price: totalHotelBuyerPrices,
-            discount: 0,
+            discount: appliedDiscount,
             address: property?.real_address,
             extra_price_information: extraPriceInformation,
         };
@@ -314,7 +322,7 @@ export default function BookingDetails({ property,
         }
     };
 
-
+    console.log(appliedCoupon, coupons);
     return (
         <div className="app-proceed-to-pay-cta-footer">
 
@@ -348,8 +356,7 @@ export default function BookingDetails({ property,
                                             />
                                         ))}
                                     </FormGroup>
-                                    {/* <div className="app-page-hotel-inner-info-applycoupon">
-
+                                    <div className="app-page-hotel-inner-info-applycoupon">
                                         <IonButton class="ripple-parent" onClick={handleOpenModal}>
                                             <div className="app-applycoupon-content">
                                                 <img src="/assets/images/discount.svg" />
@@ -358,8 +365,27 @@ export default function BookingDetails({ property,
                                             <img className="apply-coupon-arrow" src="/assets/images/next-primary.svg" />
                                             <IonRippleEffect></IonRippleEffect>
                                         </IonButton>
-
-                                    </div> */}
+                                    </div>
+                                    {showAppliedCoupon && (
+                                        <div className="booking-detail-applied-coupon">
+                                            <div className="">
+                                                <h5>
+                                                    Applied <span>{appliedCoupon.code}</span>
+                                                </h5>
+                                                <p>
+                                                    you saved <span>{`₹ ${appliedDiscount}`}</span> on coupon
+                                                </p>
+                                            </div>
+                                            <IconButton
+                                                onClick={() => {
+                                                    setAppliedCoupon(null)
+                                                    setShowAppliedCoupon(false)
+                                                }}
+                                            >
+                                                <img src="/assets/images/close.svg" />
+                                            </IconButton>
+                                        </div>
+                                    )}
                                     {selectedRoomsWithNumber.map((selectedRoom: any, index: any) => (
                                         <li key={index} className="listing-prices">
                                             <p>{`${selectedRoom.number} ${selectedRoom.number > 1 ? 'Rooms' : 'Room'
@@ -421,9 +447,10 @@ export default function BookingDetails({ property,
                 onClose={handleCloseModal}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                style={{display:'flex', justifyContent:'center', alignItems:'center'}}
             >
-                <div className="app-page-coupons">
-                    <div className="app-page-coupons-heading">
+                <div className="app-page-coupons" style={{backgroundColor:'white', width:'80%', borderRadius:'5px'}}>
+                    <div className="app-page-coupons-heading" style={{marginTop:'5px'}}>
                         <h1>Coupons</h1>
                         <p>Enter your Coupon Code to apply</p>
                     </div>
@@ -437,18 +464,20 @@ export default function BookingDetails({ property,
                         </IonButton>
                     </div>
                     <div className="app-page-coupons-content">
-                        <ul className="app-page-coupons-list">
+                        <ul className="app-page-coupons-list" style={{display:'flex', flexDirection:'column', justifyContent:'center', overflow:'scroll'}}>
                             {coupons.map((coupon: any) => (
-                                <li key={coupon._id} className="app-coupons-list-item">
+                                <li key={coupon._id} className="app-coupons-list-item" style={{marginBottom:'2px'}}>
                                     <CouponCard
                                         coupon={coupon}
                                         totalPrice={totalPrice}
                                         adults={adults}
+                                        totalPriceWithoutDiscount={totalPriceWithoutDiscount}
                                         childrens={childrens}
                                         coupons={coupons}
                                         appliedCoupon={appliedCoupon}
                                         setAppliedCoupon={setAppliedCoupon}
                                         setShowAppliedCoupon={setShowAppliedCoupon}
+                                        handleCloseModal={handleCloseModal}
                                     />
                                 </li>
                             ))}

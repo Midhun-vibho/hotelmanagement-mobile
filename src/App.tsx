@@ -37,6 +37,8 @@ import { getLocalStorageItem } from './services/cookieHandling';
 import { UserRoleContextConsumer } from './services/userAuthorization';
 import PaymentForm from './components/StripePaymentForm';
 import StripeCheckoutButton from './components/CheckOutForm';
+import ForgotPassword from './pages/ForgotPassword';
+import EmailSent from './pages/EmailSent';
 setupIonicReact();
 
 const App: React.FC = () => {
@@ -50,6 +52,12 @@ const App: React.FC = () => {
       </Route>
       <Route exact path="/register">
         <Register />
+      </Route>
+      <Route exact path="/forgot-password">
+        <ForgotPassword />
+      </Route>
+      <Route exact path="/email-sent/:email">
+        <EmailSent />
       </Route>
       <Route exact path="/home">
         <Home />
@@ -67,6 +75,9 @@ const App: React.FC = () => {
       </Route>
       <Route exact path="/login">
         <Login />
+      </Route>
+      <Route exact path="/forgot-password">
+        <ForgotPassword />
       </Route>
       <Route exact path="/search">
         <Search />

@@ -85,7 +85,7 @@ const Login: React.FC = () => {
                     duration={3000}
                     spinner="circles"
                   />
-                  <IonButton class="app-clear-button" fill="clear">Forgot Password?</IonButton>
+                  <IonButton class="app-clear-button" fill="clear"><Link to='/forgot-password'>Forgot Password?</Link></IonButton>
                 </div>
                 <div className="app-page-auth-optional">
                   <p>Don't have an account? <Link to="/register">Register</Link></p>
