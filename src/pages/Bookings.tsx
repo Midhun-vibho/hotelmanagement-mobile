@@ -106,10 +106,10 @@ const Bookings: React.FC = () => {
                             <ul className="app-page-booking-list">
                                 <li className="app-page-booking-list-item">
                                     {
-                                        bookings && bookings?.map((booking: any) => {
+                                        bookings && bookings.reverse().map((booking: any) => {
                                             const hotelInformation = JSON.parse(
-                                                booking?.hotel_infomration,
-                                            )[0];
+												booking.hotel_infomration,
+											)[0]
                                             return (
                                                 <UpcomingBookingsCard hotelInformation={hotelInformation} booking={booking} selectedTab={selectedTab} handleCancelBooking={handleCancelBooking} />
                                             );

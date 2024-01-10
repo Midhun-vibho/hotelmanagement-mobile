@@ -14,7 +14,6 @@ const UpcomingBookingsCard = ({ booking, hotelInformation , selectedTab,handleCa
                 <div className="app-bookings-card-content">
                     <div className="app-comzponent-booking-card-image">
                         <img className="app-comzponent-booking-card-image-content" onClick={() => {history.push(`/hotel-inner/${hotelInformation.hotel_id._id}`)}} src={
-                            apiBaseUrl +
                             hotelInformation.hotel_id.banner_image
                         } />
                         {/* <IonButton>

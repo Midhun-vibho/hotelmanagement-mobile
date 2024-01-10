@@ -41,7 +41,7 @@ const Thankyou: React.FC = () => {
                                 <Link to="/bookings">
                                     <IonButton shape="round" class="app-custom-button">View Booking</IonButton>
                                 </Link>
-                                <IonButton fill="clear" className="app-clear-button">Download Receipt</IonButton>
+                                {/* <IonButton fill="clear" className="app-clear-button">Download Receipt</IonButton> */}
                             </div>
                         </div>
                     </div>
